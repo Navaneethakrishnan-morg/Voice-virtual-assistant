@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.assistant-interface {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.notification {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.notification.info {
+    background-color: #e3f2fd;
+    border: 1px solid #bbdefb;
+    color: #1976d2;
+}
+
+.notification a {
+    color: #1976d2;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.notification a:hover {
+    text-decoration: underline;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.status-light {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+.status-light.listening {
+    background-color: #4CAF50;
+    box-shadow: 0 0 10px #4CAF50;
+}
+
+.status-light.speaking {
+    background-color: #2196F3;
+    box-shadow: 0 0 10px #2196F3;
+}
+
+.voice-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: #f44336;
+    color: white;
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.api-key-section, .voice-selection-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.api-key-section label, .voice-selection-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.api-key-section input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.voice-selection-section select {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.conversation-history h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.conversation-container {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background: #f9f9f9;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.user-message {
+    background: #e3f2fd;
+    margin-left: auto;
+}
+
+.assistant-message {
+    background: #f1f8e9;
+    margin-right: auto;
+}
+
+.message-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-note a {
+    color: white;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .assistant-interface {
+        padding: 20px;
+    }
+    
+    .voice-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .api-key-section input, .voice-selection-section select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .api-key-section .btn-small, .voice-selection-section .btn-small {
+        width: auto;
+    }
+}

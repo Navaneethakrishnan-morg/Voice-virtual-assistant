@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Virtual Assistant with Eleven Labs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Voice Virtual Assistant</h1>
+            <p>Powered by Eleven Labs</p>
+        </header>
+        
+        <main>
+            <div class="assistant-interface">
+                <div class="status-indicator">
+                    <div class="status-light" id="statusLight"></div>
+                    <span id="statusText">Ready</span>
+                </div>
+                
+                <div class="notification info">
+                    <p><strong>Note:</strong> This is a testing version. For full AI capabilities and voice synthesis, please add your Eleven Labs API key.</p>
+                </div>
+                
+                <div class="voice-controls">
+                    <button id="startBtn" class="btn btn-primary">Start Listening</button>
+                    <button id="stopBtn" class="btn btn-secondary" disabled>Stop</button>
+                </div>
+                
+                <div class="api-key-section">
+                    <label for="apiKey">Eleven Labs API Key (Optional for testing):</label>
+                    <input type="password" id="apiKey" placeholder="Enter your API key for full features">
+                    <button id="saveApiKey" class="btn btn-small">Save</button>
+                </div>
+                
+                <div class="voice-selection-section">
+                    <label for="voiceSelect">Select Voice (requires API key):</label>
+                    <select id="voiceSelect">
+                        <option value="21m00Tcm4TlvDq8ikWAM">Rachel (Default)</option>
+                        <option value="AZnzlk1XvdvUeBnXmlld">Domi</option>
+                        <option value="EXAVITQu4vr4xnSDxMaL">Bella</option>
+                        <option value="ErXwobaYiN019PkySvjV">Antoni</option>
+                        <option value="MF3mGyEYCl7XYWbV9V6O">Elli</option>
+                        <option value="TxGEqnHWrfWFTfGW9XjX">Josh</option>
+                        <option value="VR6AewLTigWG4xSOukaG">Arnold</option>
+                        <option value="pNInz6obpgDQGcFmaJgB">Adam</option>
+                        <option value="yoZ06aMxZJJ28mfd3POQ">Sam</option>
+                    </select>
+                    <button id="refreshVoices" class="btn btn-small">Refresh Voices</button>
+                </div>
+                
+                <div class="conversation-history">
+                    <h3>Conversation</h3>
+                    <div id="conversation" class="conversation-container"></div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Voice Virtual Assistant using Eleven Labs API</p>
+            <p class="footer-note">For AI features and voice synthesis, get your API key at <a href="https://elevenlabs.io/" target="_blank">Eleven Labs</a></p>
+        </footer>
+    </div>
+    
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
