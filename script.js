@@ -4,6 +4,7 @@ let isListening = false;
 let apiKey = localStorage.getItem(config.localStorageKeys.apiKey) || '';
 let elevenLabsVoiceId = localStorage.getItem(config.localStorageKeys.voiceId) || config.defaultVoiceId;
 let audioContext;
+let isDarkMode = localStorage.getItem('darkMode') === 'true';
 
 // DOM Elements
 const startBtn = document.getElementById('startBtn');
@@ -15,6 +16,7 @@ const saveApiKeyBtn = document.getElementById('saveApiKey');
 const conversationContainer = document.getElementById('conversation');
 const voiceSelect = document.getElementById('voiceSelect');
 const refreshVoicesBtn = document.getElementById('refreshVoices');
+const themeToggle = document.getElementById('themeToggle');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Set voice selection
     voiceSelect.value = elevenLabsVoiceId;
+    
+    // Initialize dark mode
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        themeToggle.textContent = 'Toggle Light Mode';
+    }
     
     // Check for browser support
     if (!('webkitSpeechRecognition' in window)) {
@@ -72,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     saveApiKeyBtn.addEventListener('click', saveApiKey);
     voiceSelect.addEventListener('change', saveVoiceSelection);
     refreshVoicesBtn.addEventListener('click', refreshVoices);
+    themeToggle.addEventListener('click', toggleDarkMode);
     
     // Load available voices if API key exists
     if (apiKey) {
@@ -98,6 +107,14 @@ function updateStatus(text, status) {
             // Ready state
             break;
     }
+}
+
+// Toggle dark mode
+function toggleDarkMode() {
+    isDarkMode = !isDarkMode;
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    localStorage.setItem('darkMode', isDarkMode);
+    themeToggle.textContent = isDarkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode';
 }
 
 // Start listening for user speech
